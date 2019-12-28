@@ -26,6 +26,8 @@ library:
   source-dirs: src
   dependencies:
   - mtl
+  - directory
+  - filepath
 
 executables:
   hash-exe:
@@ -48,3 +50,4 @@ tests:
     - -with-rtsopts=-N
     dependencies:
     - hash
+    - mtl

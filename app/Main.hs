@@ -1,6 +1,13 @@
 module Main where
 
-import Lib
+import Hash.Shell
+import Hash.Echo
+import Hash.Cd
+import Hash.Cat
+import Hash.Path
 
-main :: IO ()
-main = someFunc
+main :: IO ((), FilePath)
+main = sh "C:/Users/Administrator" $ do
+    echo pwd [Hash.Echo.NoNewLine]
+    cd "Desktop"
+    echo (cat "desktop.ini" []) []
