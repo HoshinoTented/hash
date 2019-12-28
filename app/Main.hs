@@ -5,9 +5,11 @@ import Hash.Echo
 import Hash.Cd
 import Hash.Cat
 import Hash.Path
+import Hash.Ls
 
 main :: IO ((), FilePath)
 main = sh "C:/Users/Administrator" $ do
-    echo pwd [Hash.Echo.NoNewLine]
+    echo' pwd
     cd "Desktop"
-    echo (cat "desktop.ini" []) []
+    echo' $ show <$> l
+    echo' $ cat' "text.txt"

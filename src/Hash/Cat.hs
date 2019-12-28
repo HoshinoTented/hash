@@ -1,19 +1,18 @@
 module Hash.Cat (
     cat
+  , cat'
   , CatOptions(..)
 ) where
 
 import Hash.Shell
 
-data CatOptions = Help
-    deriving (Show, Eq)
+data CatOptions
+--    deriving (Show, Eq)
+
+cat' = flip cat []
 
 cat :: FilePath -> [CatOptions] -> Shell String
 cat path opts = do
-    if elem Help opts
-        then return "Usage: cat <FILE> [OPTIONS]\n\
-                    \  -h --help    Show help document"
-        else do
-            path' <- relativePath path
+    path' <- relativePath path
 
-            liftIO $ readFile path'
+    liftIO $ readFile path'
