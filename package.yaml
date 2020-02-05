@@ -28,6 +28,8 @@ library:
   - mtl
   - directory
   - filepath
+  - primitive
+  - vector
 
 executables:
   hash-exe:

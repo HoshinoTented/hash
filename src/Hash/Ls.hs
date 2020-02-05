@@ -14,10 +14,13 @@ data LsOptions
 
 l = ls' "."
 
-ls' = flip ls []
+ls' = ls []
 
-ls :: FilePath -> [LsOptions] -> Shell [FilePath]
-ls path opts = do
+{-|
+Usage: ls [OPTIONS] <FilePath>
+-}
+ls :: [LsOptions] -> FilePath -> Shell [FilePath]
+ls opts path = do
     path' <- relativePath path
 
     liftIO $ getDirectoryContents path'

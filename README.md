@@ -1,3 +1,3 @@
 # hash
 
-HASH is a **HA**skell ba**SH** library.
+HASH is a **HA**skell **SH**ell library.

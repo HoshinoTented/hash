@@ -9,10 +9,13 @@ import Hash.Shell
 data CatOptions
 --    deriving (Show, Eq)
 
-cat' = flip cat []
+cat' = cat []
 
-cat :: FilePath -> [CatOptions] -> Shell String
-cat path opts = do
+{-|
+Usage: cat [OPTIONS] <FilePath>
+-}
+cat :: [CatOptions] -> FilePath -> Shell String
+cat opts path = do
     path' <- relativePath path
 
     liftIO $ readFile path'
